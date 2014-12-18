@@ -1,0 +1,58 @@
+vim插件管理工具:vundle
+1、vundle的安装：
+git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+2、.vimrc针对vundle的配置做修改
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" 可以通过以下四种方式指定插件的来源
+" a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
+Bundle 'L9'
+
+“ b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+
+" c) 指定非Github的Git仓库的插件，需要使用git地址
+Bundle 'git://git.wincent.com/command-t.git'
+
+" d) 指定本地Git仓库中的插件
+Bundle 'file:///Users/gmarik/path/to/plugin'
+
+filetype plugin indent on     " required!
+
+3、安装插件
+:BundleInstall
+
+4、Vundle常用command
+:BundleList              -列举列表(也就是.vimrc)中配置的所有插件
+:BundleInstall          -安装列表中的全部插件
+:BundleInstall!         -更新列表中的全部插件
+:BundleSearch foo   -查找foo插件
+:BundleSearch! foo  -刷新foo插件缓存
+:BundleClean           -清除列表中没有的插件
+:BundleClean!          -清除列表中没有的插件
+
+附：参考文献
+Vundle项目
+vim-scripts维护的GitHub repo
+
+
+5、YouCompleteMe编译安装
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+语义补全要正确工作，需要配置好.ycm_extra_conf.py文件，模板查看：https://gist.github.com/locojay/4950253。
+可以把这个文件放在项目的根目录下，打开项目文件时，YCM会循环向上搜索并加载这个文件，或者在vimrc文件中加入
+let g:ycm_global_ycm_extra_conf = 'your path to .ycm_extra_conf.py'
+如果.ycm_extra_conf.py中include path等配置没有问题，YCM已经可以工作了。
+
