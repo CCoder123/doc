@@ -1,0 +1,60 @@
+http://www.ihref.com/read-16369.html
+http://www.cnblogs.com/sysu-blackbear/p/3463475.html
+
+git init
+
+git add filename
+
+git commit -m "balabala.."
+
+git status
+
+git diff  
+
+git log
+git log --graph
+git log --pretty=oneline
+git reflog
+
+
+git 撤销修改命令：
+命令git checkout -- filename意思就是，把filename文件在工作区的修改全部撤销，这里有两种情况：
+一种是filename自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是filename已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，版本回退，不过前提是没有推送到远程库。
+git reset --hard commit_id
+git reset --hard HEAD^  (HEAD^^)
+
+git checkout filename
+git reset HEAD filename
+
+git rm filename
+
+
+git 将本地仓库和远程github仓库关联
+git touch README
+git init
+git add README
+git commit -m ""
+git remote add origin git@github.com:username/xxx.git
+git push -u origin master
+
+
+
+git checkout -b branch_name
+git branch -a
+git merge branch_name
+git branch -d branch_name
+git branch -D branch_name
+
+
+git stash
+git stash --help
+
