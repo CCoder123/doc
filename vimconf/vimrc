@@ -14,6 +14,11 @@ map <C-k> :AV<CR>
 map <C-d> :cw<CR>
 
 
+"兼容tmux方向键"
+"set -g default-terminal "xterm" 
+""set term=cons25
+set term=linux
+
 "********************************************************
 "                   一般性配置                          *
 "********************************************************
@@ -254,7 +259,7 @@ Bundle 'Syntastic'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Valloric/YouCompleteMe' 
+""Bundle 'Valloric/YouCompleteMe' 
    
 ""Bundle 'c.vim'
 "Bundle 'minibufexpl.vim'

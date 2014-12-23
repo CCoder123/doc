@@ -1,3 +1,5 @@
+
+
 tmux使用：所有的command都是以ctrl+b 开始
 
 tmux ls 查看所有tmux session
